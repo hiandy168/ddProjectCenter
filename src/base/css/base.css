@@ -1,0 +1,220 @@
+/*
+* @Author: Administrator
+* @Date:   2017-03-28 10:57:18
+* @Last Modified by:   Administrator
+* @Last Modified time: 2017-05-04 13:53:23
+*/
+body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,a,code,em,img,q,small,strong,dd,dl,dt,li,ol,ul,fieldset,form,label,table,tbody,tr,th,td,input{margin:0;padding:0;border:0}
+body,div,ul,li,ol,h1,h2,h3,h4,h5,h6,input,textarea,select,p,b,i,span,dl,dt,dd,a,img,button,form,table,th,tr,td,tbody,article,aside, details,figcaption,figure,footer,header,hgroup, menu,nav,section{ font-family: Tahoma,Arial,Roboto,"Droid Sans","Helvetica Neue","Droid Sans Fallback","Heiti SC", "\5b8b\4f53", sans-serif;}
+body{width: 7.5rem;}
+body, html {
+	font-size: 32px;
+	font-size: .32rem;
+	font-weight: bold;
+	color: #ffffff;
+	max-width: 1080px;
+	margin: 0 auto;	
+	background-color: rgb(53,53,59);
+	-webkit-overflow-scrolling: touch;
+	-webkit-user-select: none; /*禁止用户选择文字*/
+	-ms-touch-action: manipulation; /* 禁用通过双击放大某些元素 */
+	touch-action: manipulation;
+	-webkit-text-size-adjust: 100%; /* 禁用字号自动调整 */
+	-ms-text-size-adjust: 100%;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+a,a:active,a:hover,a:focus,a:visited{text-decoration:none}
+a,img{-webkit-touch-callout:none}
+ol,ul,li{list-style:none}
+/* textarea,input[type="password"],input[type="text"]{resize:none;outline:0;-webkit-appearance:none;white-space:pre-wrap;word-wrap:break-word;} */
+
+
+/* 基准色样式开始 */
+.colorGreen{color:#42C29D;}
+.colorOrange{color:#F2662E;}
+.colorGray{color:#999999;}
+.colorRed{color:#FF5555;}
+.colorBlue{color:#3BAFC1;}
+.colorYellow{color:#F2AD2E;}
+/* 基准色样式结束 */
+
+/* 时间选择样式开始 */
+.timeSelect{
+  padding: 0 0.2rem;
+}
+.responsiveBox{
+  white-space: nowrap;
+  overflow: hidden;
+  overflow-x: scroll;
+  -webkit-backface-visibility: hidden;
+  -webkit-overflow-scrolling: touch; /* 滚动touch */
+}
+/* optionList start */
+.optionList{
+  height: 0.8rem;
+  text-align: justify;
+  margin: 1.2rem 0 0 0;
+  -webkit-border-radius: 0.04rem;
+  border-radius: 0.04rem;
+}
+.optionList > li{
+  width: 1.6rem;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  background: rgba(255,255,255,.2);
+  color: #fff;
+  cursor: pointer;
+  margin-left: -0.04rem;
+  -webkit-border-radius: 0.04rem;
+  border-radius: 0.04rem;
+}
+.optionListActive{
+  background-color: rgba(255,255,255,.1) !important;
+  color: #42C29D !important;
+}
+/* optionList end */
+/* 时间选择样式结束 */
+
+/* 模态窗时间选择样式开始 */
+.modal.in .modal-dialog{
+  -webkit-transform: translate3d(0,80%,0);
+  -ms-transform: translate3d(0,80%,0);
+  -o-transform: translate3d(0,80%,0);
+  transform: translate3d(0,80%,0);
+}
+.modal-body{
+  max-height: 1.4rem;
+}
+#myModalLabel{color: #333;}
+.selectTime{
+  width: 1.96rem;
+  height: 0.76rem;
+  border: 1px solid #ddd;
+  font-weight: normal;
+  color: #333;
+}
+.modal-footer{
+  padding: 0;
+  border-top: 0.04rem solid #42C29D;
+  width: 100%;
+}
+.cancleBtn,
+.confirmBtn{
+  border: 0;
+  padding: 0.2rem 0.24rem;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+.confirmBtn{
+  background-color: #42C29D;
+  color: #fff;
+  border-top-right-radius: 0;
+}
+.cancleBtn{
+  color: #42C29D;
+}
+.modal-header-mine{
+  padding: 0.2rem;
+}
+.modal-body-mine > ul{
+  margin-bottom: 0;
+}
+.confirmBtn:hover, 
+.confirmBtn:focus, 
+.confirmBtn:active{
+  color: #fff;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+  outline-style: none !important;
+}
+.cancleBtn:hover,
+.cancleBtn:focus,
+.cancleBtn:active{
+  background-color: #fff !important;
+  color: #42C29D !important;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+  outline-style: none !important;
+}
+.mbsc-ios .mbsc-fr-btn{
+  color: #ff5555 !important;
+}
+/* 模态窗时间选择样式结束 */
+
+/* 日期选择错误提示信息样式开始 */
+.messageInfo{
+  white-space : nowrap;
+  background-color: rgba(0,0,0,.8);
+  padding: 0.2rem;
+  color:#fff;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  z-index: 100000;
+  display: none;
+}
+/* 日期选择错误提示信息样式结束 */
+
+/* 禁用pc端表单输入框默认清除按钮 */
+input[type=text]::-ms-clear,
+input[type=tel]::-ms-clear,
+input[type=number]::-ms-clear { display:none; }
+input{
+  -webkit-appearance:none;
+  appearance: none;
+}
+
+/* 文字超出显示省略号 */
+.nowrap{
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  white-space:nowrap;
+}
+
+/* messageInfo */
+.messageInfo{
+  white-space : nowrap;
+  background-color: rgba(0,0,0,.8);
+  padding: 0.2rem;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  z-index: 100000;
+  display: none;
+}
+
+/* 回到顶部样式开始 */
+.topBtn{
+  width: 1.28rem;
+  height: 1.28rem;
+  background-color: #7F7E87;
+  border:0;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  left: auto;
+  right: 0.2rem;
+  bottom: 1.2rem;
+  cursor: pointer;
+  opacity: 0.3;
+}
+.topBtn > div.text-center{
+  white-space : nowrap;
+  padding: 0;
+}
+.topBtn > div.text-center > .glyphicon{
+  display: block;
+  font-weight: normal;
+  font-size: 0.4rem;
+  margin: 0.15rem auto 0;
+}
+.topBtn > div > .text{
+  font-size: 0.2rem;
+  font-weight: normal;
+  margin: 0 auto;
+}
+/* 回到顶部样式结束 */

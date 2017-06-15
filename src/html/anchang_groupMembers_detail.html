@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>案场组员业绩详情</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">  
+    <link rel="stylesheet" type="text/css" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../base/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../css/daDing_detail.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../base/css/mobiscroll.custom-3.0.0-beta6.min.css"> -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+        var deviceWidth = document.documentElement.clientWidth;
+        if(deviceWidth > 750){
+            deviceWidth = 750;
+        }else if (deviceWidth < 320) {
+            deviceWidth = 320;
+        };
+        document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+    </script>
+</head>
+<body>
+    <div class="container-fluid wrap newChannel">
+        <!-- 时间选择结构开始 -->
+        <header>
+            <div class="container-fluid newChannel">
+                <ul id="countType" class="list-unstyled list-inline optionList responsiveBox">
+                    <li class="text-center optionListActive" data-index="1">昨日</li>
+                    <li class="text-center" data-index="0">今日</li>
+                    <li class="text-center" data-index="2">本周</li>
+                    <li class="text-center" data-index="3">本月</li>
+                    <li class="text-center" data-index="4">本年</li>
+                    <li class="text-center" data-index="5">全部</li>
+                    <li class="text-center" data-index="6" data-toggle="modal" data-target="#myModal">自定<span class="caret"></span></li>
+                </ul>
+                <!-- Modal start-->
+                <div class="modal fade bs-example-modal-sm container" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header modal-header-mine">
+                                <h4 class="modal-title" id="myModalLabel">自定</h4>
+                            </div>
+                            <div class="modal-body modal-body-mine">
+                                <ul class="list-unstyled list-inline text-center">
+                                    <li><input id="dataScreenFirsttime" class="data selectTime   text-center" placeholder="请选择日期" /></li>
+                                    <li><span>-</span></li>
+                                    <li><input id="dataScreenEndtime" class="data selectTime text-center" placeholder="请选择日期" /></li>
+                                </ul>    
+                            </div>
+                            <div class="modal-footer text-center">
+                                <div class="btn-group btn-group-sm btn-group-justified">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default cancleBtn colorRed" data-dismiss="modal">取消</button>
+                                    </div>
+                                    <div class="btn-group">
+                                        <button type="button" id="confirmBtnID" class="btn confirmBtn">确定</button>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal end-->
+            </div>
+        </header>
+        <!-- 时间选择结构结束 -->
+        <div class="mainItem">
+            <!-- 渠道业绩结构开始 -->
+            <section>
+                <div class="title row groupMembers_detail_title">
+                </div>
+                <div class="main no_line special_main groupMembers_detail">
+                    <div class="row">
+                        <div class="col-sm-3 col-xs-3 col-md-3">预约</div>
+                        <div class="col-sm-6 col-xs-6 col-md-6">
+                            <span id="PlaceReserve"></span>组
+                        </div>
+                        <div class="col-sm-3 col-xs-3 col-md-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3 col-xs-3 col-md-3">带看</div>
+                        <div class="col-sm-6 col-xs-6 col-md-6">
+                            <span id="LookCustomer"></span>组
+                        </div>
+                        <div class="col-sm-3 col-xs-3 col-md-3"></div>
+                    </div>
+                </div>
+                <div class="main no_line special_main groupMembers_detail">
+                    <div class="row">
+                        <div class="col-sm-3 col-xs-3 col-md-3">大定</div>
+                        <div class="col-sm-6 col-xs-6 col-md-6">
+                            <span id="TotalSale"></span>万元
+                        </div>
+                        <div class="col-sm-3 col-xs-3 col-md-3">
+                            <span id="TotalHouse"></span>套
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3 col-xs-3 col-md-3">签约</div>
+                        <div class="col-sm-6 col-xs-6 col-md-6">
+                            <span id="ReservatMoney"></span>万元
+                        </div>
+                        <div class="col-sm-3 col-xs-3 col-md-3">
+                            <span id="ReservatHouse"></span>套
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3 col-xs-3 col-md-3">成交比</div>
+                        <div class="col-sm-6 col-xs-6 col-md-6">
+                            <span id='cjScale'></span>
+                        </div>
+                        <div class="col-sm-3 col-xs-3 col-md-3"></div>
+                    </div>
+                </div>
+                <div class="main no_line special_main groupMembers_detail">
+                    <div class="row">
+                        <div class="col-sm-3 col-xs-3 col-md-3">回款</div>
+                        <div class="col-sm-6 col-xs-6 col-md-6">
+                            <span id="PaymentBack"></span>万元
+                        </div>
+                        <div class="col-sm-3 col-xs-3 col-md-3">
+                            <span id="PaymentHouse"></span>套
+                        </div>
+                    </div>
+                </div>
+                <div class="main no_line special_main groupMembers_detail">
+                    <div class="row">
+                        <div class="col-sm-3 col-xs-3 col-md-3">退定</div>
+                        <div class="col-sm-6 col-xs-6 col-md-6">
+                            <span id="BreakHouseMoney"></span>万元
+                        </div>
+                        <div class="col-sm-3 col-xs-3 col-md-3">
+                            <span id="BreakHouse"></span>套
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3 col-xs-3 col-md-3">退房</div>
+                        <div class="col-sm-6 col-xs-6 col-md-6">
+                            <span id="tfSum"></span>万元
+                        </div>
+                        <div class="col-sm-3 col-xs-3 col-md-3">
+                            <span id="tfSut"></span>套
+                        </div>
+                    </div>
+                </div>
+            </section>  
+            <!-- 渠道业绩结构结束 -->
+        </div>
+        <!-- 回到顶部按钮结构开始 -->
+        <nav class="navbar navbar-default navbar-fixed-bottom topBtn">
+          <div class="container-fluid text-center">
+            <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+            <span class="text">回到顶部</span>
+          </div>
+        </nav>
+        <!-- 回到顶部按钮结构结束 -->
+        <div class="messageInfo"></div>
+    </div>
+    <script type="text/javascript" src="../base/js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../base/js/public.js"></script>
+    <script type="text/javascript" src="../js/anchang_groupMembers_detail.js"></script>
+    <!-- <script type="text/javascript" src="../base/js/mobiscroll.custom-3.0.0-beta6.min.js"></script> -->
+</body>
+</html>

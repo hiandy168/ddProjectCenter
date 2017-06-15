@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>佣金详情</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">  
+    <link rel="stylesheet" type="text/css" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../base/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../css/daDing_detail.css">
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+        var deviceWidth = document.documentElement.clientWidth;
+        if(deviceWidth > 750){
+            deviceWidth = 750;
+        }else if (deviceWidth < 320) {
+            deviceWidth = 320;
+        };
+        document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+    </script>
+</head>
+<body>
+    <div class="container-fluid wrap">
+        <!-- 头部客户主要信息结构开始 -->
+        <header>
+            <nav class="navbar navbar-default navbar-fixed-top header">
+                <ul class="list-group customer">
+                    <li class="list-group-item">
+                        <span id="houseName" class="badge"></span>
+                        <p id="tooltip" class="nowrap" data-toggle="tooltip" data-placement="bottom" title=""><span id="customerName"></span>&nbsp;&nbsp;<span id="customerPhone"></span></p>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <!-- 头部客户主要信息结构结束 -->
+        <div class="mainItem">
+            <!-- 渠道信息结构开始 -->
+            <section>
+                <div class="title row">
+                    <div class="col-sm-6 col-xs-6 col-md-6">渠道信息</div>
+                    <div class="col-sm-6 col-xs-6 col-md-6 text-right">联动:<span id="placeName"></span></div>
+                </div>
+                <ul class="list-group customer company">
+                    <li class="list-group-item">
+                        <p id="agencyName"></p>
+                        <span id="memberName"></span>　　<span id="memberPhone"></span>
+                    </li>
+                </ul>
+            </section>
+            <!-- 渠道信息结构结束 -->
+            <!-- 佣金信息结构开始 -->
+            <section>
+                <div class="title row">
+                    <div class="col-sm-6 col-xs-6 col-md-6">佣金信息</div>
+                    <div class="col-sm-6 col-xs-6 col-md-6 text-right">
+                        案场: <span id="saleName"></span>
+                    </div>
+                </div>
+                <div class="main no_line">
+                    <div class="row">
+                        <div class="col-sm-4 col-xs-4 col-md-4">签约时间</div>
+                        <div class="col-sm-8 col-xs-8 col-md-8">
+                            <span id="signTime"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 col-xs-4 col-md-4">签约金额</div>
+                        <div class="col-sm-8 col-xs-8 col-md-8">
+                            <span id="signMoney"></span>
+                            元
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 col-xs-4 col-md-4">佣金</div>
+                        <div class="col-sm-8 col-xs-8 col-md-8">
+                            <span id="RewardActual"></span>元
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 col-xs-4 col-md-4">奖励</div>
+                        <div class="col-sm-8 col-xs-8 col-md-8">
+                            <span id="cashPrice"></span>元
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 col-xs-4 col-md-4">折佣</div>
+                        <div class="col-sm-8 col-xs-8 col-md-8">
+                            <span id="commission"></span>
+                            元
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 col-xs-4 col-md-4">提供发票</div>
+                        <div class="col-sm-8 col-xs-8 col-md-8">
+                            <span id="isInvoice"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 col-xs-4 col-md-4">应发佣金</div>
+                        <div class="col-sm-8 col-xs-8 col-md-8">
+                            <span id="rewardTotal"></span>元
+                        </div>
+                    </div>
+                </div>
+            </section>  
+            <!-- 佣金信息结构结束 -->
+            <!-- 发放进展结构开始 -->
+            <section>
+                <div class="title row">
+                    <div class="col-sm-6 col-xs-6 col-md-6">发放进展</div>
+                    <div class="col-sm-6 col-xs-6 col-md-6 text-right"></div>
+                </div>
+                <div class="table-responsive hk_table progress_table">
+                    <table class="table table-condensed">
+                        <tbody id="tbody">
+                            <!-- <tr>
+                                <td>
+                                    <i class="circle center-block"></i>
+                                    <div class="line center-block"></div>
+                                </td>
+                                <td><span class="progress_info">2016-12-09　12:00　<b>已发佣</b></span></td>
+                            </tr> -->
+                            <!-- <tr>
+                                <td>
+                                    <i class="circle"></i>　<span class="progress_info">2016-12-09　12:00　<b>已发佣</b></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="circle"></i>　<span class="progress_info">2016-12-09　12:00　<b>待发佣</b></span>
+                                </td>
+                            </tr>
+                            <tr class="in_review">
+                                <td>
+                                    <i class="circle"></i>　<span class="progress_info">2016-12-09　12:00　<b>财务审核</b></span>
+                                </td>
+                            </tr>
+                            <tr class="pass">
+                                <td>
+                                    <i class="circle"></i>　<span class="progress_info">2016-12-09　12:00　<b>法务审核</b></span>
+                                </td>
+                            </tr>
+                            <tr class="pass">
+                                <td>
+                                    <i class="circle"></i>　<span class="progress_info">2016-12-09　12:00　<b>未发起</b></span>
+                                </td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <!-- 发放进展结构结束 -->
+        </div>
+        <!-- 回到顶部按钮结构开始 -->
+        <nav class="navbar navbar-default navbar-fixed-bottom topBtn">
+          <div class="container-fluid text-center">
+            <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+            <span class="text">回到顶部</span>
+          </div>
+        </nav>
+        <!-- 回到顶部按钮结构结束 -->
+        <div class="messageInfo"></div>
+    </div>
+    <script type="text/javascript" src="../base/js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../base/js/public.js"></script>
+    <script type="text/javascript" src="../js/commission_detail.js"></script>
+</body>
+</html>

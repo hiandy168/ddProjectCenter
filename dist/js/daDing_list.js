@@ -1,0 +1,1 @@
+$(function(){$(".wrap").on("click",".row",function(n){n.preventDefault(),window.location.href="daDing_detail.html"})});

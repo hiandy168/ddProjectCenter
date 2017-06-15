@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>进程走势</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">  
+    <link rel="stylesheet" type="text/css" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../base/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../css/index_jczs.css">
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+        var deviceWidth = document.documentElement.clientWidth;
+        if(deviceWidth > 750){
+            deviceWidth = 750;
+        }else if (deviceWidth < 320) {
+            deviceWidth = 320;
+        };
+        document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+    </script>
+</head>
+<body>
+    <!-- 头部tab结构开始 -->
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top header">
+           <ul id="nav" class="nav nav-tabs row list-unstyled list-inline">
+               <li role="presentation" class="col-xs-3 col-sm-3 col-md-3 text-center">
+                   <a href="javascript:;" class="text-center" data-info="1">新增业绩</a>
+               </li>
+               <li role="presentation" class="col-xs-3 col-sm-3 col-md-3 text-center">
+                   <a href="javascript:;" class="text-center" data-info="2">房源销控</a>
+               </li>
+               <li role="presentation" class="active col-xs-3 col-sm-3 col-md-3 text-center">
+                   <a href="javascript:;" class="text-center" data-info="3">进程走势</a>
+               </li>
+               <li role="presentation" class="col-xs-3 col-sm-3 col-md-3 text-center">
+                   <a href="javascript:;" class="text-center" data-info="4">渠道中心</a>
+               </li>
+           </ul>
+       </nav>
+    </header>
+    <!-- 头部tab结构结束 -->
+    <!-- 主体结构开始 -->
+    <section>
+        <!-- 进程走势结构开始 -->
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row selectMenu center-block">
+                    <div class="col-xs-3 col-sm-3 col-md-3 text-center" data-info="1">本周</div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 text-center optionListActive" data-info="2">本月</div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 text-center" data-info="3">本年</div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 text-center" data-info="4">全部</div>
+                </div>
+            </div>
+            <section class="chartArea">
+                <h3 class="h4 colorGreen">报备来访走势</h3>
+                <div class="clearfix marginBottom">
+                    <div class="pull-left">报备量：<span id="baobeiNum"></span></div>
+                    <div class="pull-right">来访量：<span id="laifangNum"></span></div>
+                </div>
+                <div class="responsiveBox">
+                    <div id="bblfChart" style="min-width: 300px; min-height: 200px; margin: 0 auto;"></div>
+                </div>
+            </section>
+            <section class="chartArea">
+                <h3 class="h4 colorBlue">成交走势</h3>               
+                <div class="clearfix marginBottom">
+                    <div class="pull-left">成交量：<span id="chengjiaoNum"></span></div>
+                </div>
+                <div class="responsiveBox">
+                    <div id="cjzsChart" style="min-width: 300px; min-height: 200px; margin: 0 auto;"></div>
+                </div>    
+            </section>
+            <section class="chartArea">
+                <h3 class="h4 colorYellow">新增渠道走势</h3>
+                <div class="clearfix marginBottom">
+                   <div class="pull-left">新增渠道：<span id="NewZsNum"></span></div> 
+                </div>
+                <div class="responsiveBox">
+                    <div id="newZsChart" style="min-width: 300px; min-height: 200px; margin: 0 auto;"></div>
+                </div>    
+            </section>
+        </div>
+        <!-- 进程走势结构结束 -->
+    </section>
+    <!-- 回到顶部按钮结构开始 -->
+    <nav class="navbar navbar-default navbar-fixed-bottom topBtn">
+      <div class="container-fluid text-center">
+        <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+        <span class="text">回到顶部</span>
+      </div>
+    </nav>
+    <!-- 回到顶部按钮结构结束 -->
+    <div class="messageInfo"></div>
+    <!-- 主体结构结束 -->
+    <script type="text/javascript" src="../base/js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../base/js/public.js"></script>
+    <script type="text/javascript" src="../js/index_jczs.js"></script>
+    <script type="text/javascript" src="../base/js/highcharts.js"></script>
+</body>
+</html>

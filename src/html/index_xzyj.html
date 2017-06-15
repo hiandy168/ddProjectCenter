@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>项目中心</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">  
+    <link rel="stylesheet" type="text/css" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../base/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../css/newIncreased_list.css">
+    <link rel="stylesheet" type="text/css" href="../css/index_xzyj.css">
+    <link rel="stylesheet" type="text/css" href="../base/css/mobiscroll.custom-3.0.0-beta6.min.css">
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+        var deviceWidth = document.documentElement.clientWidth;
+        if(deviceWidth > 750){
+            deviceWidth = 750;
+        }else if (deviceWidth < 320) {
+            deviceWidth = 320;
+        };
+        document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+    </script>
+</head>
+<body>
+    <!-- 头部tab结构开始 -->
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top header">
+           <ul id="nav" class="nav nav-tabs row list-unstyled list-inline">
+               <li role="presentation" class="active col-xs-3 col-sm-3 col-md-3 text-center">
+                    <a href="javascript:;" class="text-center" data-info="1">新增业绩</a>
+               </li>
+               <li role="presentation" class="col-xs-3 col-sm-3 col-md-3 text-center">
+                   <a href="javascript:;" class="text-center" data-info="2">房源销控</a>
+               </li>
+               <li role="presentation" class="col-xs-3 col-sm-3 col-md-3 text-center">
+                   <a href="javascript:;" class="text-center" data-info="3">进程走势</a>
+               </li>
+               <li role="presentation" class="col-xs-3 col-sm-3 col-md-3 text-center">
+                   <a href="javascript:;" class="text-center" data-info="4">渠道中心</a>
+               </li>
+           </ul>
+       </nav>
+    </header>
+    <!-- 头部tab结构结束 -->
+    <!-- 时间选择结构开始 -->
+    <section>
+        <div class="container-fluid totalWrap">
+            <ul id="timeList" class="list-unstyled list-inline optionList responsiveBox">
+                <li class="text-center optionListActive" data-index="1">昨日</li>
+                <li class="text-center" data-index="0">今日</li>
+                <li class="text-center" data-index="2">本周</li>
+                <li class="text-center" data-index="3">本月</li>
+                <li class="text-center" data-index="4">本年</li>
+                <li class="text-center" data-index="6">全部</li>
+                <li class="text-center" data-index="5" data-toggle="modal" data-target="#myModal">自定<span class="caret"></span></li>
+            </ul>
+            <!-- Modal start-->
+            <div class="modal fade bs-example-modal-sm container mymodalbgc" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header modal-header-mine">
+                            <h4 class="modal-title" id="myModalLabel">自定</h4>
+                        </div>
+                        <div class="modal-body modal-body-mine">
+                            <ul class="list-unstyled list-inline text-center">
+                                <li><input id="dataScreenFirsttime" class="data selectTime text-center" placeholder="请选择日期" /></li>
+                                <li><span>-</span></li>
+                                <li><input id="dataScreenEndtime" class="data selectTime text-center" placeholder="请选择日期" /></li>
+                            </ul>    
+                        </div>
+                        <div class="modal-footer text-center">
+                            <div class="btn-group btn-group-sm btn-group-justified">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default cancleBtn" data-dismiss="modal">取消</button>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" id="confirmBtnID" class="btn confirmBtn">确定</button>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal end-->
+            <div class="total colorRed">
+                <p>总业绩：<span id="totalSum"></span>元　共<span id="totalSut"></span>套</p>
+            </div>
+        </div>
+    </section>
+    <!-- 时间选择结构结束 -->
+    <!-- 主体结构开始 -->
+    <section>
+        <div class="container-fluid wrap indexWrap">
+            <div class="row">
+                <div class="col-sm-3 col-xs-3 col-md-3">
+                    <span class="colorGreen">大定</span>
+                </div>
+                <div class="col-sm-6 col-xs-6 col-md-6">
+                    <p><span id="reserveSaleTotal"></span>万元</p>
+                </div>
+                <div class="col-sm-3 col-xs-3 col-md-3">
+                    <p><span id="reserveHouse"></span>套</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 col-xs-3 col-md-3">
+                    <span class="colorGreen">签约</span>
+                </div>
+                <div class="col-sm-6 col-xs-6 col-md-6">
+                    <p><span id="saleHouseTotal"></span>万元</p>
+                </div>
+                <div class="col-sm-3 col-xs-3 col-md-3">
+                    <p><span id="SaleHouse"></span>套</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 col-xs-3 col-md-3">
+                    <span class="colorGreen">回款</span>
+                </div>
+                <div class="col-sm-6 col-xs-6 col-md-6">
+                    <p><span id="paymentHouseTotal"></span>万元</p>
+                </div>
+                <div class="col-sm-3 col-xs-3 col-md-3">
+                    <p><span id="paymentHouse"></span>套</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 col-xs-3 col-md-3">
+                    <span class="colorGreen">发佣</span>
+                </div>
+                <div class="col-sm-6 col-xs-6 col-md-6">
+                    <p><span id="commissionTotal"></span>万元</p>
+                </div>
+                <div class="col-sm-3 col-xs-3 col-md-3">
+                    <p><span id="commissionHouse"></span>套</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 col-xs-3 col-md-3">
+                    <span class="colorGreen">退定</span>
+                </div>
+                <div class="col-sm-6 col-xs-6 col-md-6">
+                    <p><span id="backReserveMoney"></span>万元</p>
+                </div>
+                <div class="col-sm-3 col-xs-3 col-md-3">
+                    <p><span id="backReserveHouse"></span>套</p>
+                </div>
+            </div>
+            <div class="row specialRow">
+                <div class="col-sm-3 col-xs-3 col-md-3">
+                    <span class="colorGreen">退房</span>
+                </div>
+                <div class="col-sm-6 col-xs-6 col-md-6">
+                    <p><span id="backMoney"></span>万元</p>
+                </div>
+                <div class="col-sm-3 col-xs-3 col-md-3">
+                    <p><span id="backHouse"></span>套</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 col-xs-3 col-md-3">
+                    <span class="colorGreen">报备</span>
+                </div>
+                <div class="col-sm-6 col-xs-6 col-md-6">
+                    <p></p>
+                </div>
+                <div class="col-sm-3 col-xs-3 col-md-3">
+                    <p><span id="reportCustomer"></span>组</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 col-xs-3 col-md-3">
+                    <span class="colorGreen">来访</span>
+                </div>
+                <div class="col-sm-6 col-xs-6 col-md-6">
+                    <p><span id="lfScale"></span></p>
+                </div>
+                <div class="col-sm-3 col-xs-3 col-md-3">
+                    <p><span id="lfSut"></span>组</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 col-xs-3 col-md-3">
+                    <span class="colorGreen">新增渠道</span>
+                </div>
+                <div class="col-sm-6 col-xs-6 col-md-6">
+                    <p></p>
+                </div>
+                <div class="col-sm-3 col-xs-3 col-md-3">
+                    <p><span id="addAgency"></span>家</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 col-xs-3 col-md-3">
+                    <span class="colorGreen">新增踩盘</span>
+                </div>
+                <div class="col-sm-6 col-xs-6 col-md-6">
+                    <p></p>
+                </div>
+                <div class="col-sm-3 col-xs-3 col-md-3">
+                    <p><span id="newIncreased"></span>家</p>
+                </div>
+            </div>
+            <!-- 回到顶部按钮结构开始 -->
+            <nav class="navbar navbar-default navbar-fixed-bottom topBtn">
+              <div class="container-fluid text-center">
+                <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+                <span class="text">回到顶部</span>
+              </div>
+            </nav>
+            <!-- 回到顶部按钮结构结束 -->
+        </div>
+    </section>
+    <div class="messageInfo"></div>
+    <!-- 主体结构结束 -->
+    <!-- 底部菜单结构开始 -->
+    <footer>
+        <nav class="navbar navbar-default navbar-fixed-bottom footer">
+            <div class="container-fluid">
+                <div class="btn-group-justified">
+                    <a id="anchang_group" class="btn btn-default colorBlue anChangBtn">案场组</a>
+                    <a id="liandong_group" class="btn btn-default colorGreen lianDongBtn">联动组</a>
+                    <a class="btn btn-default baobeiBtn" data-toggle="modal" data-target="#baobeiSearch">报备查询</a>
+                </div>
+            </div>
+        </nav>
+        <!-- Modal start-->
+        <div class="modal fade bs-example-modal-sm container mymodalbgc" id="baobeiSearch" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body modal-body-mine">
+                        <input type="number" id="searchBox" placeholder="输入客户号码后四位检索" oninput="if(value.length>4)value=value.slice(0,4)" maxlength="4">
+                    </div>
+                    <div class="modal-footer">
+                        <div class="btn-group btn-group-sm btn-group-justified">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default cancleBtn"  data-dismiss="modal">取消</button>
+                            </div>
+                            <div class="btn-group">
+                                <button type="button" id="baobeiConfirmID" class="btn confirmBtn">确定</button >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal end-->
+    </footer>
+    <!-- 底部菜单结构结束 -->
+    <script type="text/javascript" src="../base/js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../base/js/public.js"></script>
+    <script type="text/javascript" src="../js/index_xzyj.js"></script>
+    <script type="text/javascript" src="../base/js/mobiscroll.custom-3.0.0-beta6.min.js"></script>
+</body>
+</html>
