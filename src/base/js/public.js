@@ -1,14 +1,9 @@
-var getRoothPath = "http://192.168.1.101:8080/efcloulddataapp";//本地
-//var getRoothPath = "http://192.168.1.101:8080/efcloulddataapp";//正式库
-// var getRoothPath = "http://www.ehaofangwang.com/efcloulddataapp";//测试库
+var getRoothPath = "";//本地
+//var getRoothPath = "";//正式库
+// var getRoothPath = "";//测试库
 
 $(function() { 
 	// var userId = document.getElementById("userId").innerHTML;
-	//8150003 营运中心
-	//8150005 事业部工号
-	//8150062 项目中心工号
-	//8161288 8161239联动
-	//8161087 案场
 	
 	//tab栏切换
 	var navList = $("#nav li");
